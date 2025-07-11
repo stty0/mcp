@@ -1,0 +1,2 @@
+# Requirements for MCP Client
+# No additional dependencies needed - uses only Python stdlib
