@@ -12,12 +12,12 @@ import json
 # Add the server module to path
 sys.path.insert(0, '/home/jrpark/workspace/mcp/src/scp-diagram-mcp-server')
 
-from awslabs.aws_diagram_mcp_server.diagrams_tools import (
+from diagrams_tools import (
     generate_diagram,
     get_diagram_examples,
     list_diagram_icons,
 )
-from awslabs.aws_diagram_mcp_server.models import DiagramType
+from models import DiagramType
 
 
 async def test_direct_functions():

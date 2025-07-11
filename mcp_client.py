@@ -183,7 +183,10 @@ class DiagramMCPClient:
             server_command: Command to start the server. Defaults to uvx command.
         """
         if server_command is None:
-            server_command = ["uvx", "awslabs.scp-diagram-mcp-server"]
+            server_command = ["uv", "run", "python", "-m", "server"]
+        
+        # Set working directory for server execution
+        self.server_cwd = "/home/jrpark/workspace/mcp/src/scp-diagram-mcp-server"
         
         self.mcp_client = MCPClient(server_command)
         self.workspace_dir = os.getcwd()

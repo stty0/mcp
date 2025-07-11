@@ -30,7 +30,7 @@ classifiers = [
 ]
 
 [project.scripts]
-"awslabs.scp-diagram-mcp-server" = "awslabs.aws_diagram_mcp_server.server:main"
+"awslabs.scp-diagram-mcp-server" = "server:main"
 
 [project.urls]
 Homepage = "https://awslabs.github.io/mcp/"
@@ -96,7 +96,7 @@ line-ending = "auto"
 docstring-code-format = true
 
 [tool.pyright]
-include = ["awslabs", "tests"]
+include = [".", "tests"]
 exclude = ["**/__pycache__", "**/.venv", "**/node_modules", "**/dist", "**/build"]
 typeCheckingMode = "basic"
 reportMissingImports = false
@@ -115,12 +115,13 @@ version = "0.0.0"
 tag_format = "v$version"
 version_files = [
     "pyproject.toml:version",
-    "awslabs/aws_diagram_mcp_server/__init__.py:__version__"
+    "__init__.py:__version__"
 ]
 update_changelog_on_bump = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["awslabs"]
+packages = ["."]
+include = ["*.py", "*.md", "*.txt", "*.sh", "*.png"]
 
 [tool.bandit]
 # Skip specific issues
@@ -139,4 +140,5 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["awslabs"]
+source = ["."]
+omit = ["awslabs/*"]

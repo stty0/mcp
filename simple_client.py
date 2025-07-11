@@ -32,9 +32,10 @@ class DiagramClient:
         """Test all server capabilities"""
         # Server parameters
         server_params = StdioServerParameters(
-            command="uvx",
-            args=["awslabs.scp-diagram-mcp-server"],
-            env={"FASTMCP_LOG_LEVEL": "ERROR"}
+            command="uv",
+            args=["run", "python", "-m", "server"],
+            env={"FASTMCP_LOG_LEVEL": "ERROR"},
+            cwd="/home/jrpark/workspace/mcp/src/scp-diagram-mcp-server"
         )
         
         print("🚀 Testing AWS Diagram MCP Server\n")

@@ -22,13 +22,13 @@ import os
 import re
 import signal
 import uuid
-from awslabs.aws_diagram_mcp_server.models import (
+from models import (
     DiagramExampleResponse,
     DiagramGenerateResponse,
     DiagramIconsResponse,
     DiagramType,
 )
-from awslabs.aws_diagram_mcp_server.scanner import scan_python_code
+from scanner import scan_python_code
 from typing import Optional
 
 
