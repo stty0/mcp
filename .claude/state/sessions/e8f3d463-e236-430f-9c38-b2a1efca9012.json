@@ -1,0 +1,40 @@
+{
+  "session_id": "e8f3d463-e236-430f-9c38-b2a1efca9012",
+  "parent_session_id": null,
+  "state": "stopped",
+  "state_version": 1,
+  "started_at": "2026-06-11T02:19:28Z",
+  "updated_at": "2026-06-11T03:23:31Z",
+  "resume_token": "f22b2584-6861-421b-8988-2ce82b394ebe",
+  "event_seq": 10,
+  "last_event_id": "event-000010",
+  "fork_count": 0,
+  "orchestration": {
+    "max_state_retries": 3,
+    "retry_backoff_seconds": 10
+  },
+  "cwd": "/home/jrpark/workspace/mcp",
+  "project_name": "mcp",
+  "prompt_seq": 2,
+  "git": {
+    "branch": "main",
+    "uncommitted_changes": 1,
+    "last_commit": "53889f1"
+  },
+  "plans": {
+    "exists": false,
+    "last_modified": 0,
+    "wip_tasks": 0,
+    "todo_tasks": 0,
+    "pending_tasks": 0,
+    "completed_tasks": 0
+  },
+  "changes_this_session": [],
+  "resumed_at": "2026-06-11T03:20:01Z",
+  "intent": "literal",
+  "last_message_length": 300,
+  "last_message_hash": "6845555d7a8620d0",
+  "ended_at": "2026-06-11T03:23:31Z",
+  "duration_minutes": 64,
+  "memory_logged": true
+}

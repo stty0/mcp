@@ -60,6 +60,7 @@ WORKFLOW:
 
 SUPPORTED DIAGRAM TYPES:
 - AWS architecture diagrams: Cloud infrastructure and services
+- SCP (Samsung Cloud Platform) architecture diagrams: Cloud infrastructure and services
 - Sequence diagrams: Process and interaction flows
 - Flow diagrams: Decision trees and workflows
 - Class diagrams: Object relationships and inheritance
@@ -181,7 +182,7 @@ async def mcp_generate_diagram(
 async def mcp_get_diagram_examples(
     diagram_type: DiagramType = Field(
         default=DiagramType.ALL,
-        description='Type of diagram example to return. Options: aws, sequence, flow, class, k8s, onprem, custom, all',
+        description='Type of diagram example to return. Options: aws, scp, sequence, flow, class, k8s, onprem, custom, all',
     ),
 ):
     """Get example code for different types of diagrams.

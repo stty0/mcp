@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "scp-diagram": {
+      "type": "stdio",
+      "command": "bash",
+      "args": [
+        "start_mcp_server.sh"
+      ],
+      "env": {}
+    }
+  }
+}

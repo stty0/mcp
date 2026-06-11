@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "updatedAt": "2026-06-11T04:09:25.278Z",
+  "skills": {},
+  "commands": {
+    "home/jrpark/workspace/mcp/icon/SCP": {
+      "count": 1,
+      "lastUsed": "2026-06-11T03:38:25.699Z"
+    }
+  },
+  "agents": {},
+  "hooks": {
+    "session-init": {
+      "triggered": 3,
+      "blocked": 0,
+      "lastTriggered": "2026-06-11T04:09:25.278Z"
+    }
+  }
+}

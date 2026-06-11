@@ -246,6 +246,10 @@ from diagrams.aws.blockchain import *
 from diagrams.aws.storage import *
 from diagrams.aws.satellite import *
 from diagrams.aws.enduser import *
+from diagrams.scp.servicegroup import *
+from diagrams.scp.service import *
+from diagrams.scp.resource import *
+from diagrams.scp.general import *
 """,
             namespace,
         )
@@ -348,6 +352,20 @@ def get_diagram_examples(diagram_type: DiagramType = DiagramType.ALL) -> Diagram
     if diagram_type in [DiagramType.AWS, DiagramType.ALL]:
         examples['aws_basic'] = """with Diagram("Web Service Architecture", show=False):
     ELB("lb") >> EC2("web") >> RDS("userdb")
+"""
+
+    if diagram_type in [DiagramType.SCP, DiagramType.ALL]:
+        examples['scp_basic'] = """with Diagram("SCP Web Service", show=False):
+    user = User("user")
+
+    with Cluster("VPC"):
+        lb = LoadBalance("lb")
+        web = VirtualServer("web")
+        db = MySQLDBaaS("userdb")
+
+        lb >> web >> db
+
+    user >> lb
 """
 
     if diagram_type in [DiagramType.SEQUENCE, DiagramType.ALL]:

@@ -23,6 +23,7 @@ class DiagramType(str, Enum):
     """Enum for supported diagram types."""
 
     AWS = 'aws'
+    SCP = 'scp'
     SEQUENCE = 'sequence'
     FLOW = 'flow'
     CLASS = 'class'
