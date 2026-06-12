@@ -17,8 +17,8 @@
     "disabled": null,
     "enabled_estimate": null,
     "sources": [
-      ".mcp.json"
-    ]
+  ".mcp.json"
+]
   },
   "context_budget": {
     "enabled": true,

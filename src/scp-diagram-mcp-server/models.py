@@ -96,3 +96,27 @@ class DiagramIconsResponse(BaseModel):
     providers: Dict[str, Dict[str, List[str]]]
     filtered: bool = False
     filter_info: Optional[Dict[str, str]] = None
+
+
+class TerraformResourceCategory(str, Enum):
+    """Enum for Terraform resource categories."""
+
+    RESOURCE = 'resource'
+    DATA_SOURCE = 'data-source'
+    ALL = 'all'
+
+
+class TerraformResourceListResponse(BaseModel):
+    """Response model for listing available SCP Terraform resource/data-source types."""
+
+    resources: List[str]
+    data_sources: List[str]
+    filtered: bool = False
+    filter_info: Optional[Dict[str, str]] = None
+
+
+class TerraformExampleResponse(BaseModel):
+    """Response model for SCP Terraform resource documentation/examples."""
+
+    examples: Dict[str, str]
+    not_found: List[str] = Field(default_factory=list)

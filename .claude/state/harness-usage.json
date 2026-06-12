@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updatedAt": "2026-06-11T04:09:25.278Z",
+  "updatedAt": "2026-06-12T08:04:33.093Z",
   "skills": {},
   "commands": {
     "home/jrpark/workspace/mcp/icon/SCP": {
@@ -11,9 +11,9 @@
   "agents": {},
   "hooks": {
     "session-init": {
-      "triggered": 3,
+      "triggered": 9,
       "blocked": 0,
-      "lastTriggered": "2026-06-11T04:09:25.278Z"
+      "lastTriggered": "2026-06-12T08:04:33.093Z"
     }
   }
 }

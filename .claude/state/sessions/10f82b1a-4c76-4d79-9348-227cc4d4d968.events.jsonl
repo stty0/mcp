@@ -1,0 +1,15 @@
+{"id":"event-000001","type":"session.start","ts":"2026-06-11T02:19:28Z","state":"initialized"}
+{"id":"event-000002","type":"session.resume","ts":"2026-06-11T03:20:01Z","state":"initialized"}
+{"id":"event-000003","type":"tool.bash","ts":"2026-06-11T03:21:53Z","state":"initialized","data":{"command":"ls -la /home/jrpark/workspace/mcp"}}
+{"id":"event-000004","type":"tool.bash","ts":"2026-06-11T03:21:57Z","state":"initialized","data":{"command":"find /home/jrpark/workspace/mcp/src -type f | head -50"}}
+{"id":"event-000005","type":"tool.bash","ts":"2026-06-11T03:21:58Z","state":"initialized","data":{"command":"cat /home/jrpark/workspace/mcp/start_mcp_server.sh /home/jrpark/workspace/mcp/.python-version"}}
+{"id":"event-000006","type":"tool.bash","ts":"2026-06-11T03:22:02Z","state":"initialized","data":{"command":"cat /home/jrpark/workspace/mcp/src/scp-diagram-mcp-server/pyproject.toml"}}
+{"id":"event-000007","type":"tool.bash","ts":"2026-06-11T03:22:09Z","state":"initialized","data":{"command":"git status && git diff --stat HEAD && cat .gitignore"}}
+{"id":"event-000008","type":"session.stop","ts":"2026-06-11T03:22:22Z","state":"stopped"}
+{"id":"event-000009","type":"tool.bash","ts":"2026-06-11T03:23:28Z","state":"stopped","data":{"command":"find /home/jrpark/workspace/mcp -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.svg" 2>/dev/null | grep -v node_modules"}}
+{"id":"event-000010","type":"session.stop","ts":"2026-06-11T03:23:31Z","state":"stopped"}
+{"type":"session.resume","ts":"2026-06-11T07:15:11Z","state":"initialized","data":{"cc_session_id":"24d0cfc4-11d3-454a-9048-254f6e930d0a","method":"mapping"}}
+{"id":"event-000001","type":"session.start","ts":"2026-06-11T07:15:11Z","state":"initialized"}
+{"id":"event-000001","type":"session.start","ts":"2026-06-11T07:15:11Z","state":"initialized"}
+{"id":"event-000002","type":"session.resume","ts":"2026-06-11T07:16:10Z","state":"initialized"}
+{"id":"event-000003","type":"session.stop","ts":"2026-06-11T07:16:47Z","state":"stopped"}

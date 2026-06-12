@@ -23,9 +23,10 @@ from diagrams_tools import (
     get_diagram_examples,
     list_diagram_icons,
 )
-from models import DiagramType
+from models import DiagramType, TerraformResourceCategory
 from mcp.server.fastmcp import FastMCP
 from pydantic import Field
+from terraform_tools import get_terraform_examples, list_terraform_resources
 from typing import Optional
 
 
@@ -76,7 +77,14 @@ IMPORTANT:
 - Diagrams are saved in a "generated-diagrams" subdirectory of the user's workspace by default
 - If an absolute path is provided as filename, it will be used directly
 - Diagram generation has a default timeout of 90 seconds
-- For complex diagrams, consider breaking them into smaller components""",
+- For complex diagrams, consider breaking them into smaller components
+
+PROVISIONING SCP RESOURCES WITH TERRAFORM:
+- list_terraform_resources: Discover available SCP Terraform resource and data-source types
+  (from the terraform-provider-samsungcloudplatformv2 provider)
+- get_terraform_examples: Get the example HCL usage and full attribute schema for specific
+  SCP resource/data-source types, to use as a basis for writing Terraform configuration
+- These tools only provide reference documentation; they do not run terraform themselves""",
 )
 
 
@@ -261,6 +269,57 @@ async def mcp_list_diagram_icons(
     service_filter_value = None if service_filter is None else service_filter
 
     result = list_diagram_icons(provider_filter_value, service_filter_value)
+    return result.model_dump()
+
+
+@mcp.tool(name='list_terraform_resources')
+async def mcp_list_terraform_resources(
+    name_filter: Optional[str] = Field(
+        default=None,
+        description='Case-insensitive substring filter (e.g. "virtualserver", "vpc")',
+    ),
+):
+    """List available SCP Terraform resource and data-source types.
+
+    This tool lists the resource and data-source types supported by the
+    terraform-provider-samsungcloudplatformv2 provider, based on its bundled
+    reference documentation. Use this to discover the exact type names to pass
+    to get_terraform_examples.
+
+    Returns:
+        Dictionary with matching resource and data-source type names
+    """
+    result = list_terraform_resources(None if name_filter is None else name_filter)
+    return result.model_dump()
+
+
+@mcp.tool(name='get_terraform_examples')
+async def mcp_get_terraform_examples(
+    resource_names: str = Field(
+        ...,
+        description='Comma-separated SCP Terraform resource/data-source type names, with or '
+        'without the "samsungcloudplatformv2_" prefix (e.g. "virtualserver_server,vpc_vpc,'
+        'vpc_subnet")',
+    ),
+    category: TerraformResourceCategory = Field(
+        default=TerraformResourceCategory.ALL,
+        description='Limit lookup to "resource", "data-source", or "all" (default)',
+    ),
+):
+    """Get SCP Terraform reference docs (example HCL + attribute schema) for resource types.
+
+    USAGE INSTRUCTIONS:
+    1. Use list_terraform_resources to find the exact type names you need.
+    2. Call this tool with one or more of those type names to get example HCL usage
+       and the full attribute schema for each.
+    3. Use the returned examples as templates when writing Terraform configuration
+       for SCP resources.
+
+    Returns:
+        Dictionary with doc content keyed by "<name> (resource|data-source)", and a list
+        of any requested names that had no matching documentation
+    """
+    result = get_terraform_examples(resource_names, category)
     return result.model_dump()
 
 
